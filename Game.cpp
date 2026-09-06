@@ -92,9 +92,20 @@ void Game::Render() const
 		brick.Draw();
 	}
 	
+	if (gameWon) {
+		std::string message = "You win! Press ‘R’ to play again.";
+		Console::SetCursorPosition((WINDOW_WIDTH - (int)message.length()) / 2, WINDOW_HEIGHT / 2);
+		std::cout << message;
+	}
+	else if (gameOver) {
+		std::string  message = "You lose. Press 'R' to play again.";
+		Console::SetCursorPosition((WINDOW_WIDTH - (int)message.length()) / 2, WINDOW_HEIGHT / 2);
+		std::cout << message;
+	}
 
 	Console::Lock(false);
 }
+ 
 
 void Game::CheckCollision()
 {
